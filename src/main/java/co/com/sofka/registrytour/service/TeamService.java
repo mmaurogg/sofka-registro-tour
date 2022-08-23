@@ -41,12 +41,10 @@ public class TeamService {
         return teamRepository.findByCountry(country);
     }
 
+    //TODO: solucionar cuando hay mas de un equipo con un código (en la interface cambiar flux por mono y validaciones para código único)
     public Flux<Cyclist> getCyclistsByCode(String code){
-        Mono<Team> team = teamRepository.findByCode(code);
-        Mono<List<Cyclist>> cyclists = team.map(item -> item.getCyclists().stream()
-                                                    .collect(Collectors.toList()));
-        return cyclists.flatMapMany(Flux::fromIterable);
-
+        return teamRepository.findByCode(code)
+                .flatMapIterable(team -> team.getCyclists());
     }
 
     //TODO: addCyclistToTeam

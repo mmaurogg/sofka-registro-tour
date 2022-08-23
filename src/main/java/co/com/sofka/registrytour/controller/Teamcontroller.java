@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/team")
 public class Teamcontroller {
@@ -53,8 +55,8 @@ public class Teamcontroller {
 
     //TODO: validaciones
     @GetMapping(value="/code/{code}")
-    public ResponseEntity<Mono<Cyclist>> getCyclistsByCode( @PathVariable("code") String number){
-        return new ResponseEntity(teamService.getCyclistsByCode(number), HttpStatus.OK);
+    public ResponseEntity<Flux<Cyclist>> getCyclistsByCode(@PathVariable("code") String code){
+        return new ResponseEntity(teamService.getCyclistsByCode(code), HttpStatus.OK);
     }
 
     //TODO: addCyclistToTeam

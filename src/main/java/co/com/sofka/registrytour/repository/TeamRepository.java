@@ -6,7 +6,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface TeamRepository extends ReactiveMongoRepository<Team, String> {
+
+    Flux<Team> findByCode(String code);
+
     Flux<Team> findByCountry(String country);
 
-    Mono<Team> findByCode(String code);
+
 }
