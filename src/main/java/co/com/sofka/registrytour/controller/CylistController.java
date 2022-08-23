@@ -15,7 +15,7 @@ public class CylistController {
     @Autowired
     CyclistService cyclistService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Mono<Cyclist>> addCyclist(@RequestBody Cyclist cyclist){
         return new ResponseEntity(cyclistService.add(cyclist), HttpStatus.CREATED );
     }
@@ -35,9 +35,10 @@ public class CylistController {
         return new ResponseEntity(cyclistService.delete(id),HttpStatus.OK);
     }
 
-    @PutMapping("/add")
+    @PutMapping()
     public ResponseEntity<Mono<Cyclist>> updateCyclists(@RequestBody Cyclist cyclist){
-        if (!cyclist.getId().equals(null)) {
+        //if (!cyclist.getId().equals(null)) {
+        if (cyclist.getId() != null) {
             return new ResponseEntity(cyclistService.update(cyclist), HttpStatus.CREATED);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -51,7 +52,7 @@ public class CylistController {
 
     //TODO: validaciones
     @GetMapping(value="/number/{number}")
-    public ResponseEntity<Mono<Cyclist>> getCyclistsByNumber(String number){
+    public ResponseEntity<Mono<Cyclist>> getCyclistsByNumber(@PathVariable("number") String number){
         return new ResponseEntity(cyclistService.getByNumber(number), HttpStatus.OK);
     }
 }

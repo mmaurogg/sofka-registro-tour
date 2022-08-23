@@ -49,4 +49,7 @@ public class TeamService {
 
     }
 
+    //TODO: addCyclistToTeam
+    //TODO: deleteCyclistToTeam
+
 }
