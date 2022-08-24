@@ -16,3 +16,10 @@ Uno de los eventos más importantes del ciclismo a nivel mundial es el Tour de F
 * Método que permita consultar los ciclistas pertenecientes a un equipo a partir del código de un equipo.
 * Consulta de los equipos asociados a un determinado país.
 * Consulta de los ciclistas por su nacionalidad.
+
+## Base de datos
+* Para correr el programa localmente, se debe contar con una base de datos mongodb en el puerto 27017
+
+## Docker
+* Pendiente para solucion de conflictos
+
