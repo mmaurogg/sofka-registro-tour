@@ -20,8 +20,13 @@ public class Teamcontroller {
 
     @PostMapping()
     public ResponseEntity<Mono<Team>> addTeam(@RequestBody Team team){
-        return new ResponseEntity(teamService.add(team), HttpStatus.CREATED);
+        try {
+            return new ResponseEntity(teamService.add(team), HttpStatus.CREATED);
+        } catch (Exception e){
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
+
 
     @GetMapping()
     public ResponseEntity<Flux<Team>> getAllTeams(){
@@ -50,7 +55,12 @@ public class Teamcontroller {
     //TODO: validaciones
     @GetMapping(value="/country/{country}")
     public ResponseEntity<Flux<Team>> getTeamsByCountry(@PathVariable("country") String country){
-        return new ResponseEntity(teamService.getByCountry(country),HttpStatus.OK);
+        try {
+            return new ResponseEntity(teamService.getByCountry(country),HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     //TODO: validaciones
@@ -60,5 +70,19 @@ public class Teamcontroller {
     }
 
     //TODO: addCyclistToTeam
+    @PutMapping("/addcyclist/{idTeam}")
+    public ResponseEntity<Mono<Team>> addCyclistToTeam(@PathVariable("idTeam") String idTeam, @RequestBody Cyclist cyclist){
+        try {
+            return new ResponseEntity(teamService.addCyclist(idTeam, cyclist), HttpStatus.CREATED);
+        } catch (Exception e){
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
     //TODO: deleteCyclistToTeam
+    @PutMapping("/delcyclist/{idTeam}")
+    public ResponseEntity<Mono<Team>> deleteCyclistToTeam(@PathVariable("idTeam") String idTeam, @RequestBody Cyclist cyclist){
+        return new ResponseEntity(teamService.deleteCyclistToTeam(idTeam, cyclist.getId()), HttpStatus.CREATED);
+    }
 }

@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Document
@@ -19,6 +22,9 @@ public class Cyclist {
     @Id
     private String id;
     private String name;
+    @Indexed(unique = true)
     private String number;
-    private String country;
+    private String nationality;
+    private String idEquipo;
+
 }

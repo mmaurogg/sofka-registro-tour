@@ -1,0 +1,10 @@
+/registrytour/src/main/java/co/com/sofka/registrytour/controller/Teamcontroller.java
+/registrytour/src/main/java/co/com/sofka/registrytour/RegistrytourApplication.java
+/registrytour/src/main/java/co/com/sofka/registrytour/repository/TeamRepository.java
+/registrytour/src/main/java/co/com/sofka/registrytour/collections/Team.java
+/registrytour/src/main/java/co/com/sofka/registrytour/config/WebFluxConfig.java
+/registrytour/src/main/java/co/com/sofka/registrytour/collections/Cyclist.java
+/registrytour/src/main/java/co/com/sofka/registrytour/service/CyclistService.java
+/registrytour/src/main/java/co/com/sofka/registrytour/controller/CylistController.java
+/registrytour/src/main/java/co/com/sofka/registrytour/repository/CyclistRepository.java
+/registrytour/src/main/java/co/com/sofka/registrytour/service/TeamService.java
