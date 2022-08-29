@@ -21,5 +21,6 @@ Uno de los eventos más importantes del ciclismo a nivel mundial es el Tour de F
 * Para correr el programa localmente, se debe contar con una base de datos mongodb en el puerto 27017
 
 ## Docker
-* Pendiente para solucion de conflictos
-
+Para desplegar el Docker ubiquese en la carpeta raiz del proyecto y ejecute:
+* Para construir la imagen del docker ejecute `docker-compose build registrytour`
+* Para levantar el docker ejecute `docker-compose up`
