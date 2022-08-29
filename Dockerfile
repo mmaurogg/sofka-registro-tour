@@ -1,14 +1,19 @@
-FROM openjdk
+FROM maven:3.8.6-eclipse-temurin-17-alpine as build
 
-WORKDIR /registrytour
+RUN apk update
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
+COPY ./ ./
 
-RUN ./mvnw dependency:resolve
+RUN mvn clean package -DskipTests
 
-COPY src ./src
+FROM openjdk:19-jdk-alpine3.16 as app
 
-EXPOSE 8080
+ARG APP_VERSION=0.0.1-SNAPSHOT
 
-CMD ["./mvnw", "spring-boot:run"]
+RUN mkdir /app
+
+COPY --from=build target/registrytour-${APP_VERSION}.jar /app
+
+RUN mv -v /app/registrytour-${APP_VERSION}.jar /app/registrytour.jar
+
+CMD ["java","-jar","/app/registrytour.jar"]

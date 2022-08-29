@@ -1,1 +1,3 @@
-co/com/sofka/registrytour/RegistrytourApplicationTests.class
+co\com\sofka\registrytour\RegistrytourApplicationTests.class
+co\com\sofka\registrytour\service\CyclistServiceTest.class
+co\com\sofka\registrytour\service\TeamServiceTest.class

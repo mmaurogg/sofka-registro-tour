@@ -1,0 +1,10 @@
+co\com\sofka\registrytour\service\CyclistService.class
+co\com\sofka\registrytour\collections\Cyclist.class
+co\com\sofka\registrytour\controller\CylistController.class
+co\com\sofka\registrytour\RegistrytourApplication.class
+co\com\sofka\registrytour\repository\CyclistRepository.class
+co\com\sofka\registrytour\repository\TeamRepository.class
+co\com\sofka\registrytour\config\WebFluxConfig.class
+co\com\sofka\registrytour\controller\Teamcontroller.class
+co\com\sofka\registrytour\service\TeamService.class
+co\com\sofka\registrytour\collections\Team.class
