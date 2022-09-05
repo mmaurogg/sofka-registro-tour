@@ -17,10 +17,17 @@ Uno de los eventos más importantes del ciclismo a nivel mundial es el Tour de F
 * Consulta de los equipos asociados a un determinado país.
 * Consulta de los ciclistas por su nacionalidad.
 
-## Base de datos
-* Para correr el programa localmente, se debe contar con una base de datos mongodb en el puerto 27017
-
 ## Docker
 Para desplegar el Docker ubiquese en la carpeta raiz del proyecto y ejecute:
 * Para construir la imagen del docker ejecute `docker-compose build registrytour`
 * Para levantar el docker ejecute `docker-compose up`
+
+Hacer las peticiones a: 
+* localhost:8080/cyclist
+* localhost:8080/tour
+
+## Despliegue localmente
+Para correr el programa localmente, se debe contar con una base de datos mongo en el puerto 27017 y cambiar el archivo `application.properties` para que escuche a la base de datos local (esta debe estar corriendo en el puerto 27017), para ello debe buscar la uri:
+* `spring.data.mongodb.uri= mongodb:// localhost:27017/tour`
+
+
